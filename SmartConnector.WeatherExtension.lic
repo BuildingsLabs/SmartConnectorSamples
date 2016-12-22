@@ -1,0 +1,11 @@
+<License>
+  <Id>da6f8907-aa8f-4951-a1c0-4650949f2a0d</Id>
+  <LicenseAttributes>
+    <Attribute name="PublicKey">MIIBKjCB4wYHKoZIzj0CATCB1wIBATAsBgcqhkjOPQEBAiEA/////wAAAAEAAAAAAAAAAAAAAAD///////////////8wWwQg/////wAAAAEAAAAAAAAAAAAAAAD///////////////wEIFrGNdiqOpPns+u9VXaYhrxlHQawzFOw9jvOPD4n0mBLAxUAxJ02CIbnBJNqZnjhE50mt4GffpAEIQNrF9Hy4SxCR/i85uVjpEDydwN9gS3rM6D0oTlF2JjClgIhAP////8AAAAA//////////+85vqtpxeehPO5ysL8YyVRAgEBA0IABOn+1Jsj2VXYqAQ5YEDHNExReAARUTPvKIJk3uj5LToPf3Rszi5v01hhRAD5p8UAG9ndqxTLMz942S1eZAuPsVc=</Attribute>
+    <Attribute name="AssemblyId">ed1cfc48-1815-44d0-8ebb-ad6fe6caec2f</Attribute>
+    <Attribute name="AssemblyName">SmartConnector.WeatherExtension</Attribute>
+    <Attribute name="AssemblyVersion">1.0.*</Attribute>
+    <Attribute name="LicensedTo">Anyone</Attribute>
+  </LicenseAttributes>
+  <Signature>MEUCIA5PFUyXSo8EONcb3RCosXWdQs28aUZ/CsOLn3Mw2b9EAiEA1GYajJtSeb06TufvSvW1HJF86VLJvD/eok7b2JhyPMw=</Signature>
+</License>
