@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.WeatherExten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.WeatherExtension.Test", "SmartConnector.WeatherExtension.Test\SmartConnector.WeatherExtension.Test.csproj", "{5BD9B6A1-9266-4FEB-AA99-0AEBD3213641}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ews.RestExtensions.Client", "Ews.RestExtensions.Client\Ews.RestExtensions.Client.csproj", "{AB219EE4-9A51-4C99-967C-2B85970C68AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ews.RestExtensions.Client.Test", "Ews.RestExtensions.Client.Test\Ews.RestExtensions.Client.Test.csproj", "{8DE84D38-1EE4-4D20-9639-C57C333ABAA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{5BD9B6A1-9266-4FEB-AA99-0AEBD3213641}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BD9B6A1-9266-4FEB-AA99-0AEBD3213641}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BD9B6A1-9266-4FEB-AA99-0AEBD3213641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB219EE4-9A51-4C99-967C-2B85970C68AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB219EE4-9A51-4C99-967C-2B85970C68AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB219EE4-9A51-4C99-967C-2B85970C68AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB219EE4-9A51-4C99-967C-2B85970C68AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE84D38-1EE4-4D20-9639-C57C333ABAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE84D38-1EE4-4D20-9639-C57C333ABAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE84D38-1EE4-4D20-9639-C57C333ABAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE84D38-1EE4-4D20-9639-C57C333ABAA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
