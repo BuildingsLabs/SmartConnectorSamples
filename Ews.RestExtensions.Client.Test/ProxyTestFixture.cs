@@ -20,7 +20,6 @@ namespace Ews.RestExtensions.Client.Test
             var client = EwsRestGateway.Connect(RestEndpointAddress, RestUserName, "Bad Password");
             Assert.IsFalse(client.HasValidCredentials);
             Assert.IsNull(client.Credentials);
-            cli
         }
         #endregion
 
