@@ -10,6 +10,7 @@ namespace Ews.RestExtensions.Client.Test
     [TestFixture]
     public class ProxyTestFixture
     {
+        // These values assume that the sample data has been configured and hasn't been changed.  Update as needed.
         public const string RestEndpointAddress = "http://127.0.0.1:8083";
         public const string RestUserName = "admin";
         public const string RestPassword = "Admin!23";
@@ -31,15 +32,29 @@ namespace Ews.RestExtensions.Client.Test
             var client = EwsRestGateway.Connect(RestEndpointAddress, RestUserName, RestPassword);
             Assert.IsTrue(client.HasValidCredentials);
 
-            var task = client.Root.RetrieveWithHttpMessagesAsync();
-            task.Wait();
-            var result = task.Result;
-            Assert.IsNotNull(result);
-            var root = result.Body;
+            var rootTask = client.Root.RetrieveWithHttpMessagesAsync();
+            rootTask.Wait();
+            var rootResult = rootTask.Result;
+            Assert.IsNotNull(rootResult);
+            var root = rootResult.Body;
             Assert.IsNotNull(root);
             Assert.AreEqual("ContainerItem0", root.Id);
             Assert.AreEqual("SmartConnector EWS Test Server", root.Name);
             Assert.AreEqual("All folders derive from here", root.Description);
+            Assert.AreEqual("1", root.Type);
+
+
+            // Remember to manually URL encode path parameters prior to calling
+            var ciTask = client.Containers.RetrieveByIdWithHttpMessagesAsync(root.Id.UrlEncoded());
+            ciTask.Wait();
+            var ciResult = ciTask.Result;
+            Assert.IsNotNull(ciResult);
+            var ci = ciResult.Body;
+            Assert.AreEqual( root.Id, ci.Id);
+            Assert.AreEqual(root.Name, ci.Name);
+            Assert.AreEqual(root.Description, ci.Description);
+            Assert.AreEqual(root.Type, ci.Type);
+
         }
         #endregion
 
@@ -89,7 +104,7 @@ namespace Ews.RestExtensions.Client.Test
             if (assertOnTimeout) Assert.Fail("Timed out waiting for action to occur");
         }
         #endregion
-        #region NoBusyWait (ISmartConnectorTestFixture)
+        #region NoBusyWait
         /// <summary>
         /// Waits until duration has elapsed but allows procesing to continue by 
         /// </summary>

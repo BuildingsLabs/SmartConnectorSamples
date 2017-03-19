@@ -8,11 +8,11 @@ namespace Ews.RestExtensions.Client
 {
     public static class ExtensionMethods
     {
-        #region UrlEncodeToString (string)
+        #region UrlEncoded (string)
         /// <summary>
         /// Returns a string which has been URL encoded
         /// </summary>
-        public static string UrlEncodeToString(this string stringToEncode)
+        public static string UrlEncoded(this string stringToEncode)
         {
             return string.IsNullOrEmpty(stringToEncode) ? null : HttpUtility.UrlEncode(stringToEncode);
         }
