@@ -7,28 +7,40 @@ namespace Ews.RestExtensions.Client
 {
     public class BearerToken
     {
+        private readonly DateTimeOffset _createdOn;
+
+        #region Constructor
+        public BearerToken()
+        {
+            _createdOn = DateTimeOffset.UtcNow;
+        }
+        #endregion
+
+        #region TokenUri
+        /// <summary>
+        /// The complete URI used to obtain the token
+        /// </summary>
+        public Uri TokenUri { get; private set; } 
+        #endregion
+
         #region access_token
-
         public string access_token;
-
         #endregion
 
         #region token_type
-
         public string token_type;
-
         #endregion
 
         #region userName
-
         public string userName;
-
         #endregion
 
         #region expires_in
-
         public long expires_in;
+        #endregion
 
+        #region HasExpired
+        public bool HasExpired => (DateTimeOffset.UtcNow - _createdOn).TotalMilliseconds > expires_in;
         #endregion
 
         #region ObtainToken
@@ -52,12 +64,14 @@ namespace Ews.RestExtensions.Client
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     var requestContent = new StringContent($"grant_type=password&username={username}&password={password}");
-
-                    var response = client.PostAsync(new Uri(client.BaseAddress + tokenActionName), requestContent).Result;
+                    var uri = new Uri(client.BaseAddress + tokenActionName);
+                    var response = client.PostAsync(uri, requestContent).Result;
                     if (response.IsSuccessStatusCode)
                     {
                         var responseContent = response.Content.ReadAsAsync<BearerToken>();
-                        return responseContent.Result;
+                        var token = responseContent.Result;
+                        token.TokenUri = uri;
+                        return token;
                     }
                     return null;
                 }

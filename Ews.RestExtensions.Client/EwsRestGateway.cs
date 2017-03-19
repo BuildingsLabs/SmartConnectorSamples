@@ -1,18 +1,33 @@
 ﻿using System;
-using System.Web;
+using System.Linq;
+using System.Security;
 using Microsoft.Rest;
 
 namespace Ews.RestExtensions.Client.Proxy
 {
     public partial class EwsRestGateway
     {
+        private BearerToken _token;
+        private readonly SecureString _userName = new SecureString();
+        private readonly SecureString _password = new SecureString();
+
         #region HasValidCredentials
         /// <summary>
         /// If true, the client was intantiated with valid credentials and has a valid Bearer token.
         /// </summary>
-        public bool HasValidCredentials { get; private set; }
+        public bool HasValidCredentials => _token != null;
         #endregion
-        
+        #region HasTokenExpired
+        /// <summary>
+        /// Returns true if no token exists or it has expired
+        /// </summary>
+        /// <returns></returns>
+        public bool HasTokenExpired()
+        {
+            return _token?.HasExpired ?? true;
+        }
+        #endregion
+
         #region Connect
         /// <summary>
         /// Creates a connection to an EwsRestGateway client.
@@ -34,16 +49,47 @@ namespace Ews.RestExtensions.Client.Proxy
         /// <param name="tokenEndpoint">Path where the bearer token can be retrieved.</param>
         public static EwsRestGateway Connect(Uri baseUri, string userName, string password, string tokenEndpoint = "GetToken")
         {
-            var token = BearerToken.ObtainToken(baseUri, userName, password, tokenEndpoint);
             var client = new EwsRestGateway
             {
-                HasValidCredentials = token != null
-            };
+                _token = BearerToken.ObtainToken(baseUri, userName, password, tokenEndpoint)
 
-            if (token != null) client.Credentials = new TokenCredentials(token?.access_token, token?.token_type);
-            client.Credentials?.InitializeServiceClient(client);
+            };
+            client._password.LoadValue(password);
+            client._userName.LoadValue(userName);
+
+            InitializeServiceClient(client);
             return client;
         }
+        #endregion
+
+        #region ReAuthenticate
+        /// <summary>
+        /// Obtains a new Bearer Token. Can only be called after a valid Connect call
+        /// </summary>
+        public void ReAuthenticate()
+        {
+            if (_token == null) throw new InvalidOperationException("Cannot re-authenticate when authentication has never succeeded.");
+            _token = BearerToken.ObtainToken(_token.TokenUri, _userName.ExtractValue(), _password.ExtractValue(), string.Empty);
+            InitializeServiceClient(this);
+            if (_token != null) Credentials = new TokenCredentials(_token?.access_token, _token?.token_type);
+            Credentials?.InitializeServiceClient(this);
+        } 
+        #endregion
+
+        #region InitializeServiceClient
+        private static void InitializeServiceClient(EwsRestGateway client)
+        {
+            if (client._token != null)
+            {
+                client.Credentials = new TokenCredentials(client._token?.access_token, client._token?.token_type);
+                client.Credentials.InitializeServiceClient(client);
+
+            }
+            else
+            {
+                client.Credentials = null;
+            }
+        } 
         #endregion
     }
 }
