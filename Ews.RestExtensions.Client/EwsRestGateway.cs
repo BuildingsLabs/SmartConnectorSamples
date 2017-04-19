@@ -54,6 +54,7 @@ namespace Ews.RestExtensions.Client.Proxy
                 _token = BearerToken.ObtainToken(baseUri, userName, password, tokenEndpoint)
 
             };
+            client.BaseUri = baseUri;
             client._password.LoadValue(password);
             client._userName.LoadValue(userName);
 
