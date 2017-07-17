@@ -77,8 +77,8 @@ namespace SmartConnector.UtilityExtensions
             // Get an instance of the client
             var client = MongooseObjectFactory.Current.GetInstance<IManagedEwsClient>();
 
-            // Export the root.  This method is recursive.
-            return ExportData(string.Empty, client) ?
+            // Export from the starting point.  
+            return ExportData(StartingContainerItemId, client) ?
                 new List<Prompt>() :
                 new List<Prompt> { new Prompt { Message = "Recursion terminated because maximum depth was reached.  Output is not complete", Severity = PromptSeverity.MayContinue } };
         }
