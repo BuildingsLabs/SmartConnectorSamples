@@ -1,3 +1,5 @@
+SBO 1.9.1.95 Debug/
+
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
 [Oo]bj/
@@ -112,5 +114,8 @@ UpgradeLog*.XML
 /Mongoose.Service/node_modules
 /Mongoose.Service/node_modules/
 
-#Specflow auto-generated files
-*.feature.cs
+# InstallShield artifacts
+/InstallShield/Mongoose Service/Mongoose Release
+
+# WTF is this?
+/.vs/Mongoose/v15/sqlite3/
