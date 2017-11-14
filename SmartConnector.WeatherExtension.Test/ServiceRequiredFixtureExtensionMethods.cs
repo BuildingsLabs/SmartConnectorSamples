@@ -1,18 +1,18 @@
 ﻿using Mongoose.Common;
-using Mongoose.Process.Test;
 using SxL.Common;
 using System;
+using Mongoose.Test;
 using SmartConnectorRuntime = Mongoose.Service.Mongoose;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     public static class ServiceRequiredFixtureExtensionMethods
     {
-        #region ConfigureTestFixture (ISmartConnectorTestFixture)
+        #region ConfigureTestFixture (SmartConnectorTestFixtureBase)
         /// <summary>
-        /// Common code for any ISmartConnectorTestFixture requiring IoC availability from a referenced SmartConnector.
+        /// Common code for any SmartConnectorTestFixtureBase requiring IoC availability from a referenced SmartConnector.
         /// </summary>
-        public static void ConfigureTestFixture(this ISmartConnectorTestFixture fixture)
+        public static void ConfigureTestFixture(this SmartConnectorTestFixtureBase fixture)
         {
             try
             {

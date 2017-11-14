@@ -3,26 +3,18 @@ using System.Linq;
 using Ews.Client;
 using Ews.Common;
 using Mongoose.Ews.Server.Data;
+using Mongoose.Test;
 using NUnit.Framework;
-using Mongoose.Process.Test;
 using SmartConnector.WeatherExtension.EwsServer;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     [TestFixture]
-    public class CustomEwsServeTestFixture : ISmartConnectorTestFixture
+    public class CustomEwsServeTestFixture : SmartConnectorTestFixtureBase
     {
         private const string UserName = "admin";
         private const string Password = "AdMin1234";
         private const string EwsEndpoint = "http://localhost:50999/MyRoute";
-
-        #region FixtureSetup
-        [OneTimeSetUp]
-        public void FixtureSetup()
-        {
-            this.ConfigureTestFixture();
-        }
-        #endregion
 
         #region CreateNewEwsServerTest
         [Test]

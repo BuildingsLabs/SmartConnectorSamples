@@ -1,16 +1,16 @@
-﻿using Mongoose.Common;
-using Mongoose.Process.Test;
+﻿using Mongoose.Test;
+using Mongoose.Test.Processors;
 using NUnit.Framework;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     [TestFixture]
-    public class SetupProcessorFixture : IProcessorTestFixture<SetupProcessor>
+    public class SetupProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<SetupProcessor>
     {
-        #region FixtureSetup
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        protected override void FixtureOneTimeSetup_Base()
         {
+            base.FixtureOneTimeSetup_Base();
             this.ConfigureTestFixture();
         }
         #endregion

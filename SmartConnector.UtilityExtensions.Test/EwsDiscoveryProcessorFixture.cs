@@ -1,7 +1,8 @@
 ﻿using System;
 using Mongoose.Common;
 using Mongoose.Configuration;
-using Mongoose.Process.Test;
+using Mongoose.Test;
+using Mongoose.Test.Processors;
 using NUnit.Framework;
 using SxL.Common;
 using SmartConnectorService = Mongoose.Service.Mongoose;
@@ -9,11 +10,10 @@ using SmartConnectorService = Mongoose.Service.Mongoose;
 namespace SmartConnector.UtilityExtensions.Test
 {
     [TestFixture]
-    public class EwsDiscoveryProcessorFixture : IProcessorTestFixture<EwsDiscoveryProcessor>
+    public class EwsDiscoveryProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<EwsDiscoveryProcessor>
     {
-        #region FixtureSetup (IProcessorTestFixture Member)
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        protected override void FixtureOneTimeSetup_Base()
         {
             MongooseObjectFactory.ConfigureDataDirectory();
             SmartConnectorService.InitIoC();
@@ -30,7 +30,7 @@ namespace SmartConnector.UtilityExtensions.Test
             var config = ProcessConfiguration.ExtractConfiguration(processorType);
             _processor = config.InstantiateInstance<EwsDiscoveryProcessor>();
             _processor.OutputFilePath = @"%PROGRAMDATA%\SmartConnector\SBO Output.txt";
-            _processor.EwsEndpoint = @"http://localhost:8081/EcoStruxure/DataExchange";
+            _processor.Address = @"http://localhost:8081/EcoStruxure/DataExchange";
             _processor.UserName = "admin";
             _processor.Password = "Admin!23";
             return _processor;
