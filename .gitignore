@@ -118,4 +118,6 @@ UpgradeLog*.XML
 /InstallShield/Mongoose Service/Mongoose Release
 
 # WTF is this?
-/.vs/Mongoose/v15/sqlite3/
+/.vs/SmartConnectorSamples/v15/sqlite3
+/.vs/SmartConnectorSamples/v15/Server
+
