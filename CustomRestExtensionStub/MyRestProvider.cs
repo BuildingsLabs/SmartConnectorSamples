@@ -1,22 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using CustomRestExtensionStub.Model;
 using Mongoose.Common.Api;
 
 namespace CustomRestExtensionStub
 {
-    public class MyRestProvider : RestProviderBase
+    public class MyRestProvider : RestProviderBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>
     {
-        public override MongooseHttpConfigurationBase GetHttpConfiguration()
+        #region Constructor
+        /// <inheritdoc />
+        public MyRestProvider()
         {
-            throw new NotImplementedException();
+            HttpConfiguration = new MyRestHttpConfiguration(() => Endpoint);
         }
+        #endregion
 
+        #region HttpConfiguration
+        /// <summary>
+        /// HttpConfiguration for this provider.
+        /// </summary>
+        [Required]
+        public MyRestHttpConfiguration HttpConfiguration { get; set; }
+        #endregion
+        #region GetHttpConfiguration - Override
+        /// <inheritdoc />
+        public override CoreHttpConfigurationBase GetHttpConfiguration()
+        {
+            return HttpConfiguration;
+        }
+        #endregion
+        #region IsLicensed - Override
+        /// <inheritdoc />
+        public override bool IsLicensed => false;
+        #endregion
+
+        #region Dispose - Override
+        private bool _disposed;
+        /// <inheritdoc />
         public override void Dispose()
         {
-            throw new NotImplementedException();
+            if (_disposed) return;
+
+            // Dispose anything that you need to
+
+            _disposed = true;
         }
+        #endregion
     }
 }

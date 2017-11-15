@@ -15,5 +15,9 @@ namespace CustomRestExtensionStub.Model
         /// <inheritdoc />
         public string UserName { get; set; }
         #endregion
+
+        #region Password
+        public string Password { get; set; }
+        #endregion
     }
 }

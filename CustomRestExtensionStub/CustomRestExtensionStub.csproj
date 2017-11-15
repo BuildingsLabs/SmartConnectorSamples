@@ -36,12 +36,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Ews.Client, Version=2.3.83.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ews.Client.2.3.83-beta\lib\net452\Ews.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Ews.Common, Version=2.3.83.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ews.Common.2.3.83-beta\lib\net452\Ews.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -69,11 +63,8 @@
     <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Common, Version=2.3.83.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Common.2.3.83-beta\lib\net452\Mongoose.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Mongoose.Ews.Server.Data, Version=2.3.83.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Ews.Server.Data.2.3.83-beta\lib\net452\Mongoose.Ews.Server.Data.dll</HintPath>
+    <Reference Include="Mongoose.Common, Version=2.3.84.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Common.2.3.84-beta\lib\net452\Mongoose.Common.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -87,12 +78,13 @@
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SxL.Common, Version=2.3.83.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\SxL.Common.2.3.83-beta\lib\net452\SxL.Common.dll</HintPath>
+    <Reference Include="SxL.Common, Version=2.3.84.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\SxL.Common.2.3.84-beta\lib\net452\SxL.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -116,12 +108,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\MyUser.cs" />
     <Compile Include="MyRestHttpConfiguration.cs" />
     <Compile Include="MyRestOAuthProvider.cs" />
     <Compile Include="MyRestProvider.cs" />
-    <Compile Include="MySignInManager.cs" />
-    <Compile Include="MyUserManagager.cs" />
-    <Compile Include="MyUserStore.cs" />
+    <Compile Include="MyRestSignInManager.cs" />
+    <Compile Include="MyRestUserManager.cs" />
+    <Compile Include="MyRestUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
