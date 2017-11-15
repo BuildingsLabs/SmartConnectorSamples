@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Mongoose.Common.Api;
 
 namespace CustomRestExtensionStub
 {
-    public class MyRestOAuthProvider
+    public class MyRestOAuthProvider : RestOAuthProviderBase
     {
+        #region MyRestOAuthProvider
+        public MyRestOAuthProvider(string publicClientId) : base(publicClientId)
+        {
+            
+        }
+        #endregion
+
+
+
+
     }
 }

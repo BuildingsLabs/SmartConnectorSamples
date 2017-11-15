@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomRestExtensionStub
 {
-    public class MyUserManagager
+    public class MyUserManager
     {
     }
 }
