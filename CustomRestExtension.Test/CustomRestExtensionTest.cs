@@ -28,9 +28,15 @@ namespace CustomRestExtension.Test
             Assert.IsNotNull(config.ParameterSets);
             Assert.AreEqual(1, config.ParameterSets.Count);
             var set = config.ParameterSets.FirstOrDefault(x => x.Name == "HttpConfiguration");
+            Assert.IsNotNull(set);
             set.AssertParameterExistsAndSetValue("Name", "Custom REST Extension Endpoint");
             set.AssertParameterExistsAndSetValue("AccessTokenExpireTimeSpanMinutes", "60");
             set.AssertParameterExistsAndSetValue("ServeSwaggerMetadata", "True");
+
+            set = set.ParameterSets.FirstOrDefault(x => x.Name == "ClientCredentials");
+            Assert.IsNotNull(set);
+            set.AssertParameterExistsAndSetValue("UserName", "admin");
+            set.AssertParameterExistsAndSetValue("Password", "Admin!23");
 
             return config;
         }

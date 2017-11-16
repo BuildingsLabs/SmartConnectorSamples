@@ -13,11 +13,15 @@ namespace CustomRestExtension
         /// Creates an instance of this class with default behavior
         /// </summary>
         /// <param name="publicClientId">Value for PublicClientId property.</param>
-        public MyRestOAuthProvider(string publicClientId)
+        /// <para name="configuredUser">Credentials allowed to use the REST endpoint.</para>
+        public MyRestOAuthProvider(string publicClientId, MyUser configuredUser)
             : base(publicClientId)
         {
-            
+            ConfiguredUser = configuredUser;
         }
+        #endregion
+        #region ConfiguredUser
+        protected MyUser ConfiguredUser { get; }
         #endregion
 
         #region GetUserManagerFromContextAndHydrateProperties - Override
@@ -25,9 +29,8 @@ namespace CustomRestExtension
         protected override MyRestUserManager GetUserManagerFromContextAndHydrateProperties(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<MyRestUserManager>();
-
             // Add any things to the UserManager which we're aware of because we were spun up by the service under the auspices of MyRestHttpConfiguration
-
+            userManager.ConfiguredUser = ConfiguredUser;
             return userManager;
         }
         #endregion

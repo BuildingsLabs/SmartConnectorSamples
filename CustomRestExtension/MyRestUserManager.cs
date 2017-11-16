@@ -29,6 +29,18 @@ namespace CustomRestExtension
         }
         #endregion
 
+        #region ConfiguredUser
+        /// <summary>
+        /// User configured for this endpoint.
+        /// </summary>
+        public MyUser ConfiguredUser
+        {
+            get => ((MyRestUserStore)Store).ConfiguredUser;
+            set => ((MyRestUserStore)Store).ConfiguredUser = value;
+        }
+        #endregion
+
+
         #region Create
         /// <summary>
         /// Creates an instance of this class from the supplied context and options which can then be dependency injected on a "per Owin context" basis.

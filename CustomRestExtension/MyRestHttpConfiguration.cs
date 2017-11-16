@@ -16,6 +16,7 @@ namespace CustomRestExtension
         /// <inheritdoc />
         public MyRestHttpConfiguration(Func<string> endpointUrl) : base(endpointUrl)
         {
+            ClientCredentials = new MyUser();
         }
         #endregion
 
@@ -26,15 +27,13 @@ namespace CustomRestExtension
         protected override IAssembliesResolver AssembliesResolver => new CustomAssemblyResolver(new List<Assembly> { Assembly.GetAssembly(typeof(MyRestProvider)) });
         #endregion
 
-        // TODO - Any properties you need to have configured would go here.  Use standard validation attributes as appropriate.
-        //        If those are required to connect to the backend (as they propbably are) then they need to be passed on the chain.
-
-        #region SomeInteger
+        #region Administrator
         /// <summary>
-        /// Some integer value that's important.
+        /// Using a configurable approach like this is technically OK, but not best practice.  Typical systems would already have a way to authenticate users an not do this.  
+        /// It does show how configured data can be pushed around the Owin middleware to where it is later needed at run time.
         /// </summary>
-        [Required, Range(1, int.MaxValue), Tooltip("Some helpful info we can provide to the configuring person")]
-        public int SomeInteger { get; set; }
+        [Required, Tooltip("Credentials to be used when clients authenticate")]
+        public MyUser ClientCredentials { get; set; }
         #endregion
 
         #region CreateUserManager - Override
@@ -55,7 +54,7 @@ namespace CustomRestExtension
         /// <inheritdoc />
         protected override MyRestOAuthProvider CreateOAuthProvider()
         {
-            var provider = new MyRestOAuthProvider(Name);
+            var provider = new MyRestOAuthProvider(Name, ClientCredentials);
             return provider;
         }
         #endregion
