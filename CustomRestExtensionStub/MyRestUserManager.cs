@@ -38,7 +38,7 @@ namespace CustomRestExtensionStub
             try
             {
                 Logger.LogDebug(LogCategory.RestServe, "Creating MyUserManager", context.Request.Uri);
-                return new MyRestUserManager(new MyRestUserStore(0));
+                return new MyRestUserManager(new MyRestUserStore());
             }
             catch (Exception ex)
             {

@@ -7,17 +7,9 @@ namespace CustomRestExtensionStub
     public class MyRestUserStore : RestUserStoreBase<MyUser, string>
     {
         #region Constructor
-        public MyRestUserStore(int serverId)
+        public MyRestUserStore()
         {
-            EwsServerId = serverId;
         }
-        #endregion
-
-        #region EwsServerId
-        /// <summary>
-        /// Id of the EWS Server that this store should concern itself with.
-        /// </summary>
-        public int EwsServerId { get; }
         #endregion
 
         #region FindByIdAsync - Override

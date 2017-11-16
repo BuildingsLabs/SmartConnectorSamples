@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace CustomRestExtensionStub.Model
 {
@@ -15,8 +16,8 @@ namespace CustomRestExtensionStub.Model
         /// <inheritdoc />
         public string UserName { get; set; }
         #endregion
-
         #region Password
+        [JsonIgnore]
         public string Password { get; set; }
         #endregion
     }

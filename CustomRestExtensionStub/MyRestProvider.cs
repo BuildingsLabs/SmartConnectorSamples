@@ -1,10 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CustomRestExtensionStub.Model;
+using Mongoose.Common;
 using Mongoose.Common.Api;
+using Mongoose.Common.Attributes;
 
 namespace CustomRestExtensionStub
 {
-    public class MyRestProvider : RestProviderBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>
+    /// <summary>
+    /// Class which is availble to all controllers.  This class should provide all data to be served.
+    /// </summary>
+    [ConfigurationDefaults("Sample REST Provider Class", "Sample strucuture for REST Extension Development")]
+    public class MyRestProvider : RestProviderBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>, IProviderWithCache
     {
         #region Constructor
         /// <inheritdoc />
@@ -14,10 +20,16 @@ namespace CustomRestExtensionStub
         }
         #endregion
 
+        #region CacheTenantId (IProviderWithCache Member)
+        /// <inheritdoc />
+        public string CacheTenantId => HttpConfiguration?.CacheTenantId;
+        #endregion
+        #region InMemoryCache (IProviderWithCache Member)
+        /// <inheritdoc />
+        public ICache InMemoryCache => MongooseObjectFactory.Current.GetInstance<ICache>();
+        #endregion
+
         #region HttpConfiguration
-        /// <summary>
-        /// HttpConfiguration for this provider.
-        /// </summary>
         [Required]
         public MyRestHttpConfiguration HttpConfiguration { get; set; }
         #endregion
