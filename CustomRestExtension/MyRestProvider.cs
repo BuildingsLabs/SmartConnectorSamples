@@ -57,5 +57,20 @@ namespace CustomRestExtension
             _disposed = true;
         }
         #endregion
+
+        private const string GreetingKey = "Greeting";
+
+        #region GetGreeting
+        public string GetGreeting()
+        {
+            return InMemoryCache.RetrieveItem(GreetingKey, () => "Hello World", CacheTenantId, 0);
+        }
+        #endregion
+        #region UpdateGreeting
+        public void UpdateGreeting(string newValue)
+        {
+            InMemoryCache.AddOrUpdateItem(newValue, GreetingKey, CacheTenantId, 0);
+        }
+        #endregion
     }
 }

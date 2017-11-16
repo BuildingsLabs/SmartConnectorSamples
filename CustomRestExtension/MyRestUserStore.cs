@@ -4,6 +4,9 @@ using Mongoose.Common.Api;
 
 namespace CustomRestExtension
 {
+    /// <summary>
+    /// This class works in cooperation with the 
+    /// </summary>
     public class MyRestUserStore : RestUserStoreBase<MyUser, string>
     {
         #region Constructor

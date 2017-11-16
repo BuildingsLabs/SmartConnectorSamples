@@ -26,6 +26,7 @@ namespace CustomRestExtension
         {
             var userManager = context.OwinContext.GetUserManager<MyRestUserManager>();
 
+            // Add any things to the UserManager which we're aware of because we were spun up by the service under the auspices of MyRestHttpConfiguration
 
             return userManager;
         }

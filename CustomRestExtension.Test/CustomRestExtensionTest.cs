@@ -1,4 +1,5 @@
-﻿using Mongoose.Configuration;
+﻿using System.Linq;
+using Mongoose.Configuration;
 using Mongoose.Test.Processors;
 using Mongoose.Test.Rest;
 using NUnit.Framework;
@@ -23,6 +24,13 @@ namespace CustomRestExtension.Test
             config.AssertParameterExistsAndSetValue("Scheme", "http");
             config.AssertParameterExistsAndSetValue("Host", "localhost");
             config.AssertParameterExistsAndSetValue("Port", "8086");
+
+            Assert.IsNotNull(config.ParameterSets);
+            Assert.AreEqual(1, config.ParameterSets.Count);
+            var set = config.ParameterSets.FirstOrDefault(x => x.Name == "HttpConfiguration");
+            set.AssertParameterExistsAndSetValue("Name", "Custom REST Extension Endpoint");
+            set.AssertParameterExistsAndSetValue("AccessTokenExpireTimeSpanMinutes", "60");
+            set.AssertParameterExistsAndSetValue("ServeSwaggerMetadata", "True");
 
             return config;
         }

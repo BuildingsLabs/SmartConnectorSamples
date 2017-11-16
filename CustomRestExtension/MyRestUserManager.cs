@@ -53,6 +53,7 @@ namespace CustomRestExtension
         {
             var claims = base.GenerateClaimsForUser(user);
             
+            // Add any claims you may need later here
 
             return claims;
         }
