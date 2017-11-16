@@ -22,7 +22,7 @@ namespace CustomRestExtension.Test
             var config  = base.CreateRunnableConfiguration();
 
             config.AssertParameterExistsAndSetValue("Scheme", "http");
-            config.AssertParameterExistsAndSetValue("Host", "localhost");
+            config.AssertParameterExistsAndSetValue("Host", "127.0.0.1");
             config.AssertParameterExistsAndSetValue("Port", "8086");
 
             Assert.IsNotNull(config.ParameterSets);
