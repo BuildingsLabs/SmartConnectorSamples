@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 
-namespace CustomRestExtensionStub.Model
+namespace CustomRestExtension.Model
 {
     /// <summary>
     /// User class for authenticating client requests

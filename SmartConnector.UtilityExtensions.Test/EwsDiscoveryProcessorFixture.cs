@@ -15,7 +15,7 @@ namespace SmartConnector.UtilityExtensions.Test
         #region FixtureOneTimeSetup_Base - Override
         protected override void FixtureOneTimeSetup_Base()
         {
-            MongooseObjectFactory.ConfigureDataDirectory();
+            base.FixtureOneTimeSetup_Base();
             SmartConnectorService.InitIoC();
         } 
         #endregion

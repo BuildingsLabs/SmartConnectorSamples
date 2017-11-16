@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Web.Http.Dispatcher;
-using CustomRestExtensionStub.Model;
+using CustomRestExtension.Model;
 using Mongoose.Common.Api;
 using Mongoose.Common.Attributes;
 using Owin;
 
-namespace CustomRestExtensionStub
+namespace CustomRestExtension
 {
     public class MyRestHttpConfiguration : RestHttpConfigurationBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>
     {

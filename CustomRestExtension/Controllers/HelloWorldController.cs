@@ -6,7 +6,7 @@ using System.Web.Http.Description;
 using Mongoose.Common;
 using Mongoose.Common.Api;
 
-namespace CustomRestExtensionStub.Controllers
+namespace CustomRestExtension.Controllers
 {
     [Authorize, RoutePrefix("Hello")]
     public class HelloWorldController : RestExtensionControllerBase<MyRestProvider>

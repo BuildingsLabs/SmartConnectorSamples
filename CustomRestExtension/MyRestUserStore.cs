@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CustomRestExtensionStub.Model;
+using CustomRestExtension.Model;
 using Mongoose.Common.Api;
 
-namespace CustomRestExtensionStub
+namespace CustomRestExtension
 {
     public class MyRestUserStore : RestUserStoreBase<MyUser, string>
     {

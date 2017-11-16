@@ -1,4 +1,4 @@
-﻿using CustomRestExtensionStub.Model;
+﻿using CustomRestExtension.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -7,7 +7,7 @@ using Mongoose.Common;
 using Mongoose.Common.Api;
 using SxL.Common;
 
-namespace CustomRestExtensionStub
+namespace CustomRestExtension
 {
     public class MyRestSignInManager : RestSignInManagerBase<MyUser, string>
     {

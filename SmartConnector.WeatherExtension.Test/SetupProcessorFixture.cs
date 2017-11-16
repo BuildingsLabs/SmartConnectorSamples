@@ -1,6 +1,7 @@
 ﻿using Mongoose.Test;
 using Mongoose.Test.Processors;
 using NUnit.Framework;
+using SmartConnectorRuntime = Mongoose.Service.Mongoose;
 
 namespace SmartConnector.WeatherExtension.Test
 {
@@ -11,7 +12,7 @@ namespace SmartConnector.WeatherExtension.Test
         protected override void FixtureOneTimeSetup_Base()
         {
             base.FixtureOneTimeSetup_Base();
-            this.ConfigureTestFixture();
+            SmartConnectorRuntime.InitIoC();
         }
         #endregion
 

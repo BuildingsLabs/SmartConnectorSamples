@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CustomRestExtensionStub.Model;
+using CustomRestExtension.Model;
 using Mongoose.Common;
 using Mongoose.Common.Api;
 using Mongoose.Common.Attributes;
 
-namespace CustomRestExtensionStub
+namespace CustomRestExtension
 {
     /// <summary>
     /// Class which is availble to all controllers.  This class should provide all data to be served.

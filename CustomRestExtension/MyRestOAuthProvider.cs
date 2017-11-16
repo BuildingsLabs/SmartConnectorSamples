@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using CustomRestExtensionStub.Model;
+using CustomRestExtension.Model;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Mongoose.Common.Api;
 
-namespace CustomRestExtensionStub
+namespace CustomRestExtension
 {
     public class MyRestOAuthProvider : RestOAuthProviderBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>
     {
