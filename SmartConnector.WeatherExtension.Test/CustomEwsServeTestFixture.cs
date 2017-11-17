@@ -16,6 +16,13 @@ namespace SmartConnector.WeatherExtension.Test
         private const string Password = "AdMin1234";
         private const string EwsEndpoint = "http://localhost:50999/MyRoute";
 
+        #region FixtureOneTimeSetup_Base - Override
+        protected override void FixtureOneTimeSetup_Base()
+        {
+            throw new System.NotImplementedException();
+        }
+        #endregion
+
         #region CreateNewEwsServerTest
         [Test]
         public void CreateNewEwsServerTest()
@@ -139,7 +146,7 @@ namespace SmartConnector.WeatherExtension.Test
                 // EWS returns strings here.  Fortunately, there's extension methods to help you out.
                 Assert.AreEqual(EwsValueStateEnum.Uncertain.ToEwsString(), soapVi.State);
             }
-        } 
+        }
         #endregion
 
         #region CreateConnection

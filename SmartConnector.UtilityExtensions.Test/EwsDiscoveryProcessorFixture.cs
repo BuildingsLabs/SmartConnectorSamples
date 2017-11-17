@@ -13,15 +13,16 @@ namespace SmartConnector.UtilityExtensions.Test
     public class EwsDiscoveryProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<EwsDiscoveryProcessor>
     {
         #region FixtureOneTimeSetup_Base - Override
+        /// <inheritdoc />
         protected override void FixtureOneTimeSetup_Base()
         {
-            base.FixtureOneTimeSetup_Base();
             SmartConnectorService.InitIoC();
         } 
         #endregion
 
         #region CreateTestableProcessor (IProcessorTestFixture Member)
         private EwsDiscoveryProcessor _processor;
+        /// <inheritdoc />
         public EwsDiscoveryProcessor CreateTestableProcessor()
         {
             if (_processor != null) return _processor;
@@ -38,36 +39,33 @@ namespace SmartConnector.UtilityExtensions.Test
         #endregion
 
         #region ValidateTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ValidateTest()
         {
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ValidateTest Start");
             var processor = CreateTestableProcessor();
             var results = GenericValidator.ValidateItem(processor);
             Assert.AreEqual(0, results.Count);
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ValidateTest Completed");
         }
         #endregion
 
         #region CancelTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void CancelTest()
         {
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.CancelTest Start");
             Assert.Pass();
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.CancelTest Completed");
         }
         #endregion
 
         #region ExecuteTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ExecuteTest()
         {
             const int fiveMinutes = 60 * 5 * 1000;
 
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ExecuteTest Start");
             this.RunExecuteTest(cancelTimeout: fiveMinutes);
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ExecuteTest Completed");
         }
         #endregion
     }
