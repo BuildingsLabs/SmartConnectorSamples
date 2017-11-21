@@ -7,7 +7,7 @@ using SmartConnectorService = Mongoose.Service.Mongoose;
 
 namespace CustomRestExtension.Test
 {
-    public class CustomRestExtensionTest : RestExtensionTestFixtureBase<MyRestProvider>
+    public class CustomRestExtensionFixture : RestExtensionTestFixtureBase<MyRestProvider>
     {
         #region FixtureOneTimeSetup_Base - Override
         protected override void FixtureOneTimeSetup_Base()
