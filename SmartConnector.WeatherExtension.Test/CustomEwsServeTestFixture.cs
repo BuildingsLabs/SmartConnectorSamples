@@ -3,24 +3,23 @@ using System.Linq;
 using Ews.Client;
 using Ews.Common;
 using Mongoose.Ews.Server.Data;
+using Mongoose.Test;
 using NUnit.Framework;
-using Mongoose.Process.Test;
 using SmartConnector.WeatherExtension.EwsServer;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     [TestFixture]
-    public class CustomEwsServeTestFixture : ISmartConnectorTestFixture
+    public class CustomEwsServeTestFixture : SmartConnectorTestFixtureBase
     {
         private const string UserName = "admin";
         private const string Password = "AdMin1234";
         private const string EwsEndpoint = "http://localhost:50999/MyRoute";
 
-        #region FixtureSetup
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        protected override void FixtureOneTimeSetup_Base()
         {
-            this.ConfigureTestFixture();
+            throw new System.NotImplementedException();
         }
         #endregion
 
@@ -147,7 +146,7 @@ namespace SmartConnector.WeatherExtension.Test
                 // EWS returns strings here.  Fortunately, there's extension methods to help you out.
                 Assert.AreEqual(EwsValueStateEnum.Uncertain.ToEwsString(), soapVi.State);
             }
-        } 
+        }
         #endregion
 
         #region CreateConnection

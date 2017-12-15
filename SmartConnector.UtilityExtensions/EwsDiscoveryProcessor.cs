@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using Ews.Client;
-using Ews.Common;
 using Mongoose.Common;
 using Mongoose.Common.Attributes;
 using Mongoose.Process;
+using SxL.Common;
 
 namespace SmartConnector.UtilityExtensions
 {
@@ -16,11 +16,11 @@ namespace SmartConnector.UtilityExtensions
     /// Walks the EWS tree strucutre and exports ValueItem data to a CSV file.
     /// </summary>
     [ConfigurationDefaults("EWS Discovery Processor", "Browses the EWS tree and exports data to a CSV file.")]
-    public class EwsDiscoveryProcessor : Processor, IEwsEndpoint
+    public class EwsDiscoveryProcessor : Processor, IEndpoint
     {
-        #region EwsEndpoint
+        #region Address
         [Required, Tooltip("Address of the EWS endpoint to connect to.")]
-        public string EwsEndpoint { get; set; }
+        public string Address { get; set; }
         #endregion
         #region UserName
         [Required, EncryptedString, Tooltip("EWS UserName to connect with.")]

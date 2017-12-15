@@ -1,7 +1,8 @@
 ﻿using System;
 using Mongoose.Common;
 using Mongoose.Configuration;
-using Mongoose.Process.Test;
+using Mongoose.Test;
+using Mongoose.Test.Processors;
 using NUnit.Framework;
 using SxL.Common;
 using SmartConnectorService = Mongoose.Service.Mongoose;
@@ -9,19 +10,19 @@ using SmartConnectorService = Mongoose.Service.Mongoose;
 namespace SmartConnector.UtilityExtensions.Test
 {
     [TestFixture]
-    public class EwsDiscoveryProcessorFixture : IProcessorTestFixture<EwsDiscoveryProcessor>
+    public class EwsDiscoveryProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<EwsDiscoveryProcessor>
     {
-        #region FixtureSetup (IProcessorTestFixture Member)
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        /// <inheritdoc />
+        protected override void FixtureOneTimeSetup_Base()
         {
-            MongooseObjectFactory.ConfigureDataDirectory();
             SmartConnectorService.InitIoC();
         } 
         #endregion
 
         #region CreateTestableProcessor (IProcessorTestFixture Member)
         private EwsDiscoveryProcessor _processor;
+        /// <inheritdoc />
         public EwsDiscoveryProcessor CreateTestableProcessor()
         {
             if (_processor != null) return _processor;
@@ -30,7 +31,7 @@ namespace SmartConnector.UtilityExtensions.Test
             var config = ProcessConfiguration.ExtractConfiguration(processorType);
             _processor = config.InstantiateInstance<EwsDiscoveryProcessor>();
             _processor.OutputFilePath = @"%PROGRAMDATA%\SmartConnector\SBO Output.txt";
-            _processor.EwsEndpoint = @"http://localhost:8081/EcoStruxure/DataExchange";
+            _processor.Address = @"http://localhost:8081/EcoStruxure/DataExchange";
             _processor.UserName = "admin";
             _processor.Password = "Admin!23";
             return _processor;
@@ -38,36 +39,33 @@ namespace SmartConnector.UtilityExtensions.Test
         #endregion
 
         #region ValidateTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ValidateTest()
         {
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ValidateTest Start");
             var processor = CreateTestableProcessor();
             var results = GenericValidator.ValidateItem(processor);
             Assert.AreEqual(0, results.Count);
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ValidateTest Completed");
         }
         #endregion
 
         #region CancelTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void CancelTest()
         {
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.CancelTest Start");
             Assert.Pass();
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.CancelTest Completed");
         }
         #endregion
 
         #region ExecuteTest (IProcessorTestFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ExecuteTest()
         {
             const int fiveMinutes = 60 * 5 * 1000;
 
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ExecuteTest Start");
             this.RunExecuteTest(cancelTimeout: fiveMinutes);
-            Logger.LogDebug(LogCategory.Testing, "EwsDiscoveryProcessorFixture.ExecuteTest Completed");
         }
         #endregion
     }

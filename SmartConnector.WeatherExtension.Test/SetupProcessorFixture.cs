@@ -1,17 +1,18 @@
-﻿using Mongoose.Common;
-using Mongoose.Process.Test;
+﻿using Mongoose.Test;
+using Mongoose.Test.Processors;
 using NUnit.Framework;
+using SmartConnectorRuntime = Mongoose.Service.Mongoose;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     [TestFixture]
-    public class SetupProcessorFixture : IProcessorTestFixture<SetupProcessor>
+    public class SetupProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<SetupProcessor>
     {
-        #region FixtureSetup
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        /// <inheritdoc />
+        protected override void FixtureOneTimeSetup_Base()
         {
-            this.ConfigureTestFixture();
+            SmartConnectorRuntime.InitIoC();
         }
         #endregion
 
@@ -19,7 +20,7 @@ namespace SmartConnector.WeatherExtension.Test
         /// <summary>
         /// Returns an instance of SetupProcessor which was configured using the default values for all properties.
         /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc />
         public SetupProcessor CreateTestableProcessor()
         {
             var processor = this.CreateProccessorInstanceWithDefaultValues();
@@ -32,6 +33,7 @@ namespace SmartConnector.WeatherExtension.Test
         #endregion
 
         #region ValidateTest (IProcessorFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ValidateTest()
         {
@@ -51,18 +53,21 @@ namespace SmartConnector.WeatherExtension.Test
         }
         #endregion
 
-        #region ExecuteTest (IProcessorFixture Member)
-        [Test]
-        public void ExecuteTest()
-        {
-            this.RunExecuteTest();
-        }
-        #endregion
         #region CancelTest (IProcessorFixture Member)
+        /// <inheritdoc />
         [Test]
         public void CancelTest()
         {
             this.RunCancelTest();
+        }
+        #endregion
+
+        #region ExecuteTest (IProcessorFixture Member)
+        /// <inheritdoc />
+        [Test]
+        public void ExecuteTest()
+        {
+            this.RunExecuteTest();
         }
         #endregion
     }

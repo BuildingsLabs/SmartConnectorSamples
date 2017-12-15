@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.WeatherExtension", "SmartConnector.WeatherExtension\SmartConnector.WeatherExtension.csproj", "{ED1CFC48-1815-44D0-8EBB-AD6FE6CAEC2F}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.UtilityExtensions", "SmartConnector.UtilityExtensions\SmartConnector.UtilityExtensions.csproj", "{773AB1A2-BCC9-47E1-81B5-D70DBE87A3E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.UtilityExtensions.Test", "SmartConnector.UtilityExtensions.Test\SmartConnector.UtilityExtensions.Test.csproj", "{EC4B2FE1-B5CD-4057-8501-BBCD5ECA4464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRestExtension.Test", "CustomRestExtension.Test\CustomRestExtension.Test.csproj", "{D6BF928D-BEB0-4A53-9648-23AAE5680F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRestExtension", "CustomRestExtension\CustomRestExtension.csproj", "{CE7D312B-3236-4293-9FC9-253F15FAE3D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +49,19 @@ Global
 		{EC4B2FE1-B5CD-4057-8501-BBCD5ECA4464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC4B2FE1-B5CD-4057-8501-BBCD5ECA4464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC4B2FE1-B5CD-4057-8501-BBCD5ECA4464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6BF928D-BEB0-4A53-9648-23AAE5680F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6BF928D-BEB0-4A53-9648-23AAE5680F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6BF928D-BEB0-4A53-9648-23AAE5680F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6BF928D-BEB0-4A53-9648-23AAE5680F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4125AD62-C9E3-4406-8805-35FF603C10D3}
 	EndGlobalSection
 EndGlobal

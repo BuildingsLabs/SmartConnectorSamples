@@ -1,30 +1,35 @@
-﻿using Mongoose.Process.Test;
+﻿using Mongoose.Test;
+using Mongoose.Test.Processors;
 using NUnit.Framework;
+using SmartConnectorRuntime = Mongoose.Service.Mongoose;
 
 namespace SmartConnector.WeatherExtension.Test
 {
     [TestFixture]
-    public class UpdateProcessorFixture : IProcessorTestFixture<UpdateProcessor>
+    public class UpdateProcessorFixture : SmartConnectorTestFixtureBase, IProcessorTestFixture<UpdateProcessor>
     {
-        #region FixtureSetup
-        [OneTimeSetUp]
-        public void FixtureSetup()
+        #region FixtureOneTimeSetup_Base - Override
+        /// <inheritdoc />
+        protected override void FixtureOneTimeSetup_Base()
         {
-            this.ConfigureTestFixture();
+            SmartConnectorRuntime.InitIoC();
         }
         #endregion
+
         #region CreateTestableProcessor (IProcessorFixture Member)
+        /// <inheritdoc />
         public UpdateProcessor CreateTestableProcessor()
         {
             var processor = this.CreateProccessorInstanceWithDefaultValues();
 
-            processor.ApiKey = "d1ce3419db160685c4a88244e1b1c24e"; // TODO - Put your API Key here
+            processor.ApiKey = "PUT YOUR API KEY HERE";
             processor.UpdateForecast = true;
             processor.UpdateCurrentConditions = true;
             return processor;
         }
         #endregion
         #region ValidateTest (IProcessorFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ValidateTest()
         {
@@ -44,6 +49,7 @@ namespace SmartConnector.WeatherExtension.Test
         }
         #endregion
         #region ExecuteTest (IProcessorFixture Member)
+        /// <inheritdoc />
         [Test]
         public void ExecuteTest()
         {
@@ -51,6 +57,7 @@ namespace SmartConnector.WeatherExtension.Test
         }
         #endregion
         #region CancelTest (IProcessorFixture Member)
+        /// <inheritdoc />
         [Test]
         public void CancelTest()
         {
