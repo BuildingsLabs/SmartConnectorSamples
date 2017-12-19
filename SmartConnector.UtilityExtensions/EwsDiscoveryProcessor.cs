@@ -16,7 +16,7 @@ namespace SmartConnector.UtilityExtensions
     /// Walks the EWS tree strucutre and exports ValueItem data to a CSV file.
     /// </summary>
     [ConfigurationDefaults("EWS Discovery Processor", "Browses the EWS tree and exports data to a CSV file.")]
-    public class EwsDiscoveryProcessor : Processor, IEndpoint
+    public class EwsDiscoveryProcessor : Processor, IEndpoint, ILongRunningProcess
     {
         #region Address
         [Required, Tooltip("Address of the EWS endpoint to connect to.")]
