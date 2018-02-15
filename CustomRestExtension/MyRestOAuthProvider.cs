@@ -14,8 +14,8 @@ namespace CustomRestExtension
         /// </summary>
         /// <param name="publicClientId">Value for PublicClientId property.</param>
         /// <para name="configuredUser">Credentials allowed to use the REST endpoint.</para>
-        public MyRestOAuthProvider(string publicClientId, MyUser configuredUser)
-            : base(publicClientId)
+        public MyRestOAuthProvider(string publicClientId, string cacheTenantId, MyUser configuredUser)
+            : base(publicClientId, cacheTenantId)
         {
             ConfiguredUser = configuredUser;
         }

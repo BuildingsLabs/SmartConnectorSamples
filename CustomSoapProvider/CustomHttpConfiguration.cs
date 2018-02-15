@@ -1,6 +1,4 @@
-﻿using System;
-
-using Ews.RestExtensions;
+﻿using Ews.RestExtensions;
 using Owin;
 
 namespace CustomSoapProvider
@@ -8,13 +6,6 @@ namespace CustomSoapProvider
     /// <inheritdoc />
     public class CustomHttpConfiguration : SoapEwsRestHttpConfigurationBase<CustomProvider, CustomHttpConfiguration, SoapEwsRestUserStore, SoapEwsRestUser, CustomSignInManager, CustomUserManager, CustomOAuthProvider>
     {
-        #region Constructor
-        /// <inheritdoc />
-        public CustomHttpConfiguration(Func<string> endpointUrl) : base(endpointUrl)
-        {
-        }
-        #endregion
-
         #region CreateUserManager - Override
         /// <inheritdoc />
         protected override void CreateUserManager(IAppBuilder app)

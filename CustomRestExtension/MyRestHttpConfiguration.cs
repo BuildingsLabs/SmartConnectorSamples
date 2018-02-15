@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Web.Http.Dispatcher;
@@ -12,14 +11,6 @@ namespace CustomRestExtension
 {
     public class MyRestHttpConfiguration : RestHttpConfigurationBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>
     {
-        #region Constructor
-        /// <inheritdoc />
-        public MyRestHttpConfiguration(Func<string> endpointUrl) : base(endpointUrl)
-        {
-            ClientCredentials = new MyUser();
-        }
-        #endregion
-
         #region AssembliesResolver - Override
         /// <summary>
         /// Configures the CustomAssemblyResolver for this assembly.
@@ -54,7 +45,7 @@ namespace CustomRestExtension
         /// <inheritdoc />
         protected override MyRestOAuthProvider CreateOAuthProvider()
         {
-            var provider = new MyRestOAuthProvider(Name, ClientCredentials);
+            var provider = new MyRestOAuthProvider(Name, CacheTenantId, ClientCredentials);
             return provider;
         }
         #endregion
