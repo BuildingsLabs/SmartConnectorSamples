@@ -7,7 +7,7 @@ namespace CustomSoapProvider
     {
         #region Constructor
         /// <inheritdoc />
-        public CustomOAuthProvider(string publicClientId, string serverAddress, string cacheTenantId) : base(publicClientId, serverAddress, cacheTenantId)
+        public CustomOAuthProvider(string publicClientId, string cacheTenantId, string serverAddress) : base(publicClientId, cacheTenantId, serverAddress)
         {
         }
         #endregion

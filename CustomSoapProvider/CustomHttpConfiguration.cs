@@ -24,7 +24,7 @@ namespace CustomSoapProvider
         /// <inheritdoc />
         protected override CustomOAuthProvider CreateOAuthProvider()
         {
-            var provider = new CustomOAuthProvider(Name, ServerAddress, CacheTenantId);
+            var provider = new CustomOAuthProvider(Name, CacheTenantId, ServerAddress);
             return provider;
         }
         #endregion
