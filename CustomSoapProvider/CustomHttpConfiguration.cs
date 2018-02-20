@@ -1,10 +1,13 @@
-﻿using Ews.RestExtensions;
+﻿using System.ComponentModel.DataAnnotations;
+using Ews.RestExtensions;
 using Owin;
+using SxL.Common;
 
 namespace CustomSoapProvider
 {
     /// <inheritdoc />
-    public class CustomHttpConfiguration : SoapEwsRestHttpConfigurationBase<CustomProvider, CustomHttpConfiguration, SoapEwsRestUserStore, SoapEwsRestUser, CustomSignInManager, CustomUserManager, CustomOAuthProvider>
+    public class CustomHttpConfiguration 
+        : SoapEwsRestHttpConfigurationBase<CustomProvider, CustomHttpConfiguration, SoapEwsRestUserStore, SoapEwsRestUser, CustomSignInManager, CustomUserManager, CustomOAuthProvider>
     {
         #region CreateUserManager - Override
         /// <inheritdoc />
