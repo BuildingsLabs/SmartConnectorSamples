@@ -12,14 +12,6 @@ namespace CustomRestExtension
     [ConfigurationDefaults("Sample REST Provider Class", "Sample strucuture for REST Extension Development")]
     public class MyRestProvider : RestProviderBase<MyRestProvider, MyRestHttpConfiguration, MyRestUserStore, MyUser, string, MyRestSignInManager, MyRestUserManager, MyRestOAuthProvider>, IProviderWithCache
     {
-        #region Constructor
-        /// <inheritdoc />
-        public MyRestProvider()
-        {
-            HttpConfiguration = new MyRestHttpConfiguration(() => Endpoint);
-        }
-        #endregion
-
         #region CacheTenantId (IProviderWithCache Member)
         /// <inheritdoc />
         public string CacheTenantId => HttpConfiguration?.CacheTenantId;

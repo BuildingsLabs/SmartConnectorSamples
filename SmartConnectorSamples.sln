@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnector.WeatherExtension", "SmartConnector.WeatherExtension\SmartConnector.WeatherExtension.csproj", "{ED1CFC48-1815-44D0-8EBB-AD6FE6CAEC2F}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRestExtension.Test", "CustomRestExtension.Test\CustomRestExtension.Test.csproj", "{D6BF928D-BEB0-4A53-9648-23AAE5680F53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRestExtension", "CustomRestExtension\CustomRestExtension.csproj", "{CE7D312B-3236-4293-9FC9-253F15FAE3D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSoapProvider", "CustomSoapProvider\CustomSoapProvider.csproj", "{1E60B1E5-8A6F-4EAA-9B12-42206CC3BC33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE7D312B-3236-4293-9FC9-253F15FAE3D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E60B1E5-8A6F-4EAA-9B12-42206CC3BC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E60B1E5-8A6F-4EAA-9B12-42206CC3BC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E60B1E5-8A6F-4EAA-9B12-42206CC3BC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E60B1E5-8A6F-4EAA-9B12-42206CC3BC33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
