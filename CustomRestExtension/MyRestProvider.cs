@@ -21,10 +21,6 @@ namespace CustomRestExtension
         public ICache InMemoryCache => MongooseObjectFactory.Current.GetInstance<ICache>();
         #endregion
 
-        #region HttpConfiguration
-        [Required]
-        public MyRestHttpConfiguration HttpConfiguration { get; set; }
-        #endregion
         #region GetHttpConfiguration - Override
         /// <inheritdoc />
         public override CoreHttpConfigurationBase GetHttpConfiguration()

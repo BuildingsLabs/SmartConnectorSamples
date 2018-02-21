@@ -24,7 +24,7 @@ namespace CustomRestExtension
         /// It does show how configured data can be pushed around the Owin middleware to where it is later needed at run time.
         /// </summary>
         [Required, Tooltip("Credentials to be used when clients authenticate")]
-        public MyUser ClientCredentials { get; set; }
+        public MyUser ClientCredentials { get; set; } = new MyUser();
         #endregion
 
         #region CreateUserManager - Override
