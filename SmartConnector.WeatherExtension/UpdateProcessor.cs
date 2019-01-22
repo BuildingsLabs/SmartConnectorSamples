@@ -86,7 +86,7 @@ namespace SmartConnector.WeatherExtension
             var currentConditions = RequestWeatherData<CurrentConditions>(qb);
 
             // Return successfully?
-            if (currentConditions == null || currentConditions.cod == 404) return false;
+            if (currentConditions == null || currentConditions.Cod == 404) return false;
 
             // Retrieve when we last updated the current conditions
             var currentValue = DataAdapter.ValueItems.FirstOrDefault(x => x.AlternateId == ServerHelper.CurrentLastUpdateId);
@@ -95,17 +95,17 @@ namespace SmartConnector.WeatherExtension
             if (currentValue == null) return false;
 
             // Update when the server value is not what we have
-            var serverValue = ConvertFromUnixTime(currentConditions.dt);
+            var serverValue = ConvertFromUnixTime(currentConditions.Dt);
             if (serverValue != currentValue.GetValue() || currentValue.State == EwsValueStateEnum.Uncertain)
             {
                 // Temperature
-                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentTemperatureId, ConvertTemperature(currentConditions.main.temp), EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentTemperatureId, ConvertTemperature(currentConditions.Main.Temp), EwsValueStateEnum.Good);
 
                 // CurrentPressureId
-                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentPressureId, currentConditions.main.pressure, EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentPressureId, currentConditions.Main.Pressure, EwsValueStateEnum.Good);
 
                 // CurrentRelativeHumidityId
-                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentRelativeHumidityId, currentConditions.main.humidity, EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(ServerHelper.CurrentRelativeHumidityId, currentConditions.Main.Humidity, EwsValueStateEnum.Good);
 
                 // LastUpdated - We'll do this last
                 DataAdapter.ModifyValueItemValue(currentValue, serverValue, EwsValueStateEnum.Good);
@@ -123,39 +123,39 @@ namespace SmartConnector.WeatherExtension
         private bool DoUpdateForecast(long cityId)
         {
             // Create a query builder instance
-            var qb = CreateWeatherRequest(cityId, "forecast/daily");
+            var qb = CreateWeatherRequest(cityId, "forecast");
             qb.AddQueryParameter("cnt", ServerHelper.ForecastNumberOfDays);
 
             // Execute our request
             var forecast = RequestWeatherData<Forecast>(qb);
 
             // Return successfully?
-            if (forecast == null || forecast.cod == 404) return false;
+            if (forecast == null || forecast.Cod == "404") return false;
 
             // Update the city
-            DataAdapter.ModifyValueItemValue(ServerHelper.CityNameId, forecast.city.name, EwsValueStateEnum.Good);
+            DataAdapter.ModifyValueItemValue(ServerHelper.CityNameId, forecast.City.Name, EwsValueStateEnum.Good);
 
             var day = 1;
-            foreach (var forecastDay in forecast.list)
+            foreach (var forecastDay in forecast.List)
             {
                 // ForecastDayDateId 
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayDateId, day), ConvertFromUnixTime(forecastDay.dt), EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayDateId, day), ConvertFromUnixTime(forecastDay.Dt), EwsValueStateEnum.Good);
 
                 // ForecastDayHighTempId 
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayHighTempId, day), ConvertTemperature(forecastDay.temp.max), EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayHighTempId, day), ConvertTemperature(forecastDay.Main.TempMax), EwsValueStateEnum.Good);
 
                 // ForecastDayLowTempId 
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayLowTempId, day), ConvertTemperature(forecastDay.temp.min), EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayLowTempId, day), ConvertTemperature(forecastDay.Main.TempMin), EwsValueStateEnum.Good);
 
                 // ForecastDayPressureId 
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayPressureId, day), forecastDay.pressure, EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayPressureId, day), forecastDay.Main.Pressure, EwsValueStateEnum.Good);
 
                 // ForecastDayRelativeHumidityId 
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayRelativeHumidityId, day), forecastDay.humidity, EwsValueStateEnum.Good);
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayRelativeHumidityId, day), forecastDay.Main.Humidity, EwsValueStateEnum.Good);
 
                 // ForecastDayDescriptionId 
-                var firstWeather = forecastDay.weather.FirstOrDefault();
-                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayDescriptionId, day), firstWeather?.description, EwsValueStateEnum.Good);
+                var firstWeather = forecastDay.Weather.FirstOrDefault();
+                DataAdapter.ModifyValueItemValue(string.Format(ServerHelper.ForecastDayDescriptionId, day), firstWeather?.Description, EwsValueStateEnum.Good);
 
                 day++;
             }

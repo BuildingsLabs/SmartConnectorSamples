@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SmartConnector.WeatherExtension.Proxy
 {
@@ -6,104 +8,183 @@ namespace SmartConnector.WeatherExtension.Proxy
      * The classes contained in this file were genereaged using http://json2csharp.com/ using sample requests for the methods used in this Extension.
      */
 
-    public class CurrentConditions
+    public partial class Forecast
     {
-        public Coord coord { get; set; }
-        public List<Weather> weather { get; set; }
-        public string @base { get; set; }
-        public Main main { get; set; }
-        public Wind wind { get; set; }
-        public Clouds clouds { get; set; }
-        public int dt { get; set; }
-        public Sys sys { get; set; }
-        public int id { get; set; }
-        public string name { get; set; }
-        public int cod { get; set; }
+        [JsonProperty("cod")]
+        public string Cod { get; set; }
+
+        [JsonProperty("message")]
+        public double Message { get; set; }
+
+        [JsonProperty("cnt")]
+        public long Cnt { get; set; }
+
+        [JsonProperty("list")]
+        public List<List> List { get; set; }
+
+        [JsonProperty("city")]
+        public City City { get; set; }
     }
 
-    public class Forecast
+    public partial class City
     {
-        public City city { get; set; }
-        public int cod { get; set; }
-        public double message { get; set; }
-        public int cnt { get; set; }
-        public List<ForecastDay> list { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("coord")]
+        public Coord Coord { get; set; }
+
+        [JsonProperty("country")]
+        public string Country { get; set; }
     }
 
-    public class Weather
+    public partial class Coord
     {
-        public int id { get; set; }
-        public string main { get; set; }
-        public string description { get; set; }
-        public string icon { get; set; }
+        [JsonProperty("lat")]
+        public double Lat { get; set; }
+
+        [JsonProperty("lon")]
+        public double Lon { get; set; }
     }
 
-    public class Main
+    public partial class List
     {
-        public double temp { get; set; }
-        public double pressure { get; set; }
-        public int humidity { get; set; }
-        public double temp_min { get; set; }
-        public double temp_max { get; set; }
+        [JsonProperty("dt")]
+        public long Dt { get; set; }
+
+        [JsonProperty("main")]
+        public Main Main { get; set; }
+
+        [JsonProperty("weather")]
+        public List<Weather> Weather { get; set; }
+
+        [JsonProperty("clouds")]
+        public Clouds Clouds { get; set; }
+
+        [JsonProperty("wind")]
+        public Wind Wind { get; set; }
+
+        [JsonProperty("snow")]
+        public Rain Snow { get; set; }
+
+        [JsonProperty("sys")]
+        public Sys Sys { get; set; }
+
+        [JsonProperty("dt_txt")]
+        public DateTimeOffset DtTxt { get; set; }
+
+        [JsonProperty("rain", NullValueHandling = NullValueHandling.Ignore)]
+        public Rain Rain { get; set; }
     }
 
-    public class Wind
+    public partial class Clouds
     {
-        public double speed { get; set; }
-        public double deg { get; set; }
-        public double gust { get; set; }
+        [JsonProperty("all")]
+        public long All { get; set; }
     }
 
-    public class Clouds
+    public partial class Main
     {
-        public int all { get; set; }
+        [JsonProperty("temp")]
+        public double Temp { get; set; }
+
+        [JsonProperty("temp_min")]
+        public double TempMin { get; set; }
+
+        [JsonProperty("temp_max")]
+        public double TempMax { get; set; }
+
+        [JsonProperty("pressure")]
+        public double Pressure { get; set; }
+
+        [JsonProperty("sea_level")]
+        public double SeaLevel { get; set; }
+
+        [JsonProperty("grnd_level")]
+        public double GrndLevel { get; set; }
+
+        [JsonProperty("humidity")]
+        public int Humidity { get; set; }
+
+        [JsonProperty("temp_kf")]
+        public double TempKf { get; set; }
     }
 
-    public class Sys
+    public partial class Rain
     {
-        public int type { get; set; }
-        public int id { get; set; }
-        public double message { get; set; }
-        public string country { get; set; }
-        public int sunrise { get; set; }
-        public int sunset { get; set; }
+        [JsonProperty("3h", NullValueHandling = NullValueHandling.Ignore)]
+        public double? The3H { get; set; }
     }
 
-    public class Coord
+    public partial class Sys
     {
-        public double lon { get; set; }
-        public double lat { get; set; }
+        [JsonProperty("pod")]
+        public string Pod { get; set; }
     }
 
-    public class City
+    public partial class Weather
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public Coord coord { get; set; }
-        public string country { get; set; }
-        public int population { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("main")]
+        public string Main { get; set; }
+
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("icon")]
+        public string Icon { get; set; }
     }
 
-    public class Temp
+    public partial class Wind
     {
-        public double day { get; set; }
-        public double min { get; set; }
-        public double max { get; set; }
-        public double night { get; set; }
-        public double eve { get; set; }
-        public double morn { get; set; }
+        [JsonProperty("speed")]
+        public double Speed { get; set; }
+
+        [JsonProperty("deg")]
+        public double Deg { get; set; }
     }
 
-    public class ForecastDay
+    public partial class CurrentConditions
     {
-        public int dt { get; set; }
-        public Temp temp { get; set; }
-        public double pressure { get; set; }
-        public int humidity { get; set; }
-        public List<Weather> weather { get; set; }
-        public double speed { get; set; }
-        public int deg { get; set; }
-        public int clouds { get; set; }
-        public double? rain { get; set; }
+        [JsonProperty("coord")]
+        public Coord Coord { get; set; }
+
+        [JsonProperty("weather")]
+        public List<Weather> Weather { get; set; }
+
+        [JsonProperty("base")]
+        public string Base { get; set; }
+
+        [JsonProperty("main")]
+        public Main Main { get; set; }
+
+        [JsonProperty("visibility")]
+        public long Visibility { get; set; }
+
+        [JsonProperty("wind")]
+        public Wind Wind { get; set; }
+
+        [JsonProperty("clouds")]
+        public Clouds Clouds { get; set; }
+
+        [JsonProperty("dt")]
+        public long Dt { get; set; }
+
+        [JsonProperty("sys")]
+        public Sys Sys { get; set; }
+
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("cod")]
+        public long Cod { get; set; }
     }
 }

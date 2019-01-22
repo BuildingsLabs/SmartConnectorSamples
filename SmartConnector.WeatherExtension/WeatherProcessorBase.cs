@@ -15,6 +15,9 @@ namespace SmartConnector.WeatherExtension
     /// </summary>
     public abstract class WeatherProcessorBase : Processor
     {
+#if DEBUG
+        public override bool IsLicensed => false;
+#endif
         // Either uncomment or add the license file from GitHub to your local SmartConnector runtime.
         //#region IsLicensed - Override
         //public override bool IsLicensed => false;

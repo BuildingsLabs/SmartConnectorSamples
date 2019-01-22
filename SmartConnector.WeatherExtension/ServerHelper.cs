@@ -71,7 +71,7 @@ namespace SmartConnector.WeatherExtension
 
             foreach (var id in VolatileValueItemIds)
             {
-                // Incase the ID doesn't resolve to a VI (as in UT environments), let's just log that condition.  
+                // In case the ID doesn't resolve to a VI (as in UT environments), let's just log that condition.  
                 try
                 {
                     adapter.ModifyValueItemState(id, EwsValueStateEnum.Uncertain);

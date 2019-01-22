@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartConnector.WeatherExtension.Test</RootNamespace>
     <AssemblyName>SmartConnector.WeatherExtension.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,11 +37,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Ews.Client, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ews.Client.2.3.113\lib\net452\Ews.Client.dll</HintPath>
+    <Reference Include="Ews.Client, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ews.Client.2.4.10\lib\net452\Ews.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Ews.Common, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ews.Common.2.3.113\lib\net452\Ews.Common.dll</HintPath>
+    <Reference Include="Ews.Common, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ews.Common.2.4.10\lib\net452\Ews.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -68,24 +69,24 @@
     <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Common, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Common.2.3.113\lib\net452\Mongoose.Common.dll</HintPath>
+    <Reference Include="Mongoose.Common, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Common.2.4.10\lib\net452\Mongoose.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Configuration, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Configuration.2.3.113\lib\net452\Mongoose.Configuration.dll</HintPath>
+    <Reference Include="Mongoose.Configuration, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Configuration.2.4.10\lib\net452\Mongoose.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Ews.Server.Data, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Ews.Server.Data.2.3.113\lib\net452\Mongoose.Ews.Server.Data.dll</HintPath>
+    <Reference Include="Mongoose.Ews.Server.Data, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Ews.Server.Data.2.4.10\lib\net452\Mongoose.Ews.Server.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Process, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Process.2.3.113\lib\net452\Mongoose.Process.dll</HintPath>
+    <Reference Include="Mongoose.Process, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Process.2.4.10\lib\net452\Mongoose.Process.dll</HintPath>
     </Reference>
     <Reference Include="Mongoose.Service, Version=2.3.110.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Schneider Electric\SmartConnector\Mongoose.Service.exe</HintPath>
     </Reference>
-    <Reference Include="Mongoose.Test, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mongoose.Test.2.3.113\lib\net452\Mongoose.Test.dll</HintPath>
+    <Reference Include="Mongoose.Test, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mongoose.Test.2.4.10\lib\net452\Mongoose.Test.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -103,8 +104,8 @@
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SxL.Common, Version=2.3.113.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
-      <HintPath>..\packages\SxL.Common.2.3.113\lib\net452\SxL.Common.dll</HintPath>
+    <Reference Include="SxL.Common, Version=2.4.10.0, Culture=neutral, PublicKeyToken=223885051a9a1eff, processorArchitecture=MSIL">
+      <HintPath>..\packages\SxL.Common.2.4.10\lib\net452\SxL.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -115,6 +116,9 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -149,8 +153,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
